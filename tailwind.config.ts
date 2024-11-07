@@ -9,8 +9,18 @@ export default {
   theme: {
     extend: {
       colors: {
-        background: "var(--background)",
-        foreground: "var(--foreground)",
+        background: "var(--color-background)",
+        foreground: "var(--color-foreground)",
+        accent: "var(--color-accent)",
+        highlight: "var(--color-highlight)",
+        acrylic: "var(--color-acrylic)",
+        "acrylic-separator": "var(--color-acrylic-separator)",
+      },
+      fontFamily: {
+        sans: ["var(--font-inter)"],
+      },
+      fontSize: {
+        h1: "4em",
       },
     },
   },
