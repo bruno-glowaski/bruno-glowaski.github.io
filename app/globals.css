@@ -27,3 +27,15 @@ body {
   position: absolute;
   inset: 0;
 }
+
+.animate__animated.animate__delay-250ms {
+  --animate-delay: 250ms;
+  -webkit-animation-delay: var(--animate-delay);
+  animation-delay: var(--animate-delay);
+}
+
+.animate__animated.animate__delay-500ms {
+  --animate-delay: 500ms;
+  -webkit-animation-delay: var(--animate-delay);
+  animation-delay: var(--animate-delay);
+}
