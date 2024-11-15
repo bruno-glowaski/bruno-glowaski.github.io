@@ -1,11 +1,21 @@
 .with-nav-indicator:before {
   position: absolute;
-  bottom: 0.625em;
-  left: calc(1.5rem + var(--item-index) * 7rem);
-  z-index: -1;
-  content: "_";
-  width: 4rem;
-  height: 0.25rem;
+  top: calc(1rem + 3.5rem * var(--item-index));
+  left: 0.875rem;
+  content: " ";
+  width: 0.25rem;
+  height: 1.5rem;
   background: var(--color-foreground);
   border-radius: 2rem;
+}
+
+@media screen(sm) {
+  .with-nav-indicator:before {
+    z-index: -1;
+    top: unset;
+    bottom: 0.625rem;
+    left: calc(1.5rem + 7rem * var(--item-index));
+    width: 4rem;
+    height: 0.25rem;
+  }
 }

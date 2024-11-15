@@ -4,9 +4,9 @@ export default function Home() {
   const navMenuStyle = { "--item-index": 0 } as React.CSSProperties;
   return (
     <>
-      <aside className="z-10 fixed p-8 top-0 w-full flex justify-center">
+      <aside className="z-10 sm:fixed sm:p-8 sm:top-0 w-full flex justify-center">
         <nav
-          className="material-acrylic rounded-2xl border flex backdrop-blur-xl shadow-lg overflow-clip with-nav-indicator"
+          className="material-acrylic w-full sm:w-auto sm:rounded-2xl border flex flex-col sm:flex-row backdrop-blur-xl sm:shadow-lg overflow-clip with-nav-indicator"
           style={navMenuStyle}
         >
           {NavMenuLink("Home", "/")}
@@ -29,7 +29,7 @@ export default function Home() {
         </h1>
         <span className="text-2xl font-bold">Software Engineer</span>
       </header>
-      <main className="w-full h-screen p-16 flex justify-end items-center">
+      <main className="w-full h-[200vh] sm:h-screen p-16 flex justify-end items-center">
         <div className="max-w-[40em] material-acrylic border rounded-2xl p-8 flex flex-col gap-8 shadow-lg">
           <h2 className="text-4xl drop-shadow">About</h2>
           <p>
@@ -50,7 +50,7 @@ export default function Home() {
             teams.
           </p>
           <a
-            className="self-end rounded px-4 py-2 bg-accent font-bold uppercase tracking-normal flex gap-2 after:[content:'>'] shadow"
+            className="relative sm:self-end rounded px-4 py-2 bg-accent hover:brightness-110 active:brightness-125 font-bold uppercase tracking-normal flex gap-2 justify-center after:iconify after:mdi--chevron-right after:w-6 after:h-6 shadow transition"
             href="https://www.linkedin.com/in/bruno-glowaski"
             target="_blank"
             rel="noopener noreferrer"
@@ -69,24 +69,18 @@ export default function Home() {
           {DonationOption("PIX", "9edee982-92e4-49bb-9927-643e68643d45")}
         </ul>
       </section>
-      <footer className="material-acrylic border-t p-8 flex flex-col items-center gap-8">
-        <nav className="flex gap-8">
-          <a
-            href="https://github.com/bruno-glowaski"
-            className="iconify mdi--github w-8 h-8"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Github
-          </a>
-          <a
-            href="https://www.linkedin.com/in/bruno-glowaski"
-            className="iconify mdi--linkedin w-8 h-8"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            LinkedIn
-          </a>
+      <footer className="material-acrylic border-t p-8 flex flex-col items-center gap-4">
+        <nav className="flex gap-4">
+          {FooterSocial(
+            "Github",
+            "mdi--github",
+            "https://github.com/bruno-glowaski",
+          )}
+          {FooterSocial(
+            "LinkedIn",
+            "mdi--linkedin",
+            "https://www.linkedin.com/in/bruno-glowaski",
+          )}
         </nav>
         <span>Made with Next.js, Tailwind CSS and TypeScript</span>
       </footer>
@@ -108,7 +102,7 @@ function NavMenuLink(
   }
   return (
     <a
-      className="hover:bg-highlight w-28 py-4 flex justify-center font-bold uppercase tracking-normal transition"
+      className="hover:bg-highlight w-full sm:w-28 h-14 sm:h-auto px-7 py-4 flex sm:justify-center font-bold uppercase tracking-normal transition"
       href={href}
       {...props}
     >
@@ -123,5 +117,18 @@ function DonationOption(title: string, value: string) {
       <h3 className="font-bold uppercase tracking-normal">{title}</h3>
       <span className="break-all">{value}</span>
     </li>
+  );
+}
+
+function FooterSocial(label: string, icon: string, link: string) {
+  return (
+    <a
+      href={link}
+      className="active:bg-highlight/50 hover:bg-highlight rounded-lg p-2 transition"
+      target="_blank"
+      rel="noopener noreferrer"
+    >
+      <span className={`iconify ${icon} w-8 h-8`}>{label}</span>
+    </a>
   );
 }

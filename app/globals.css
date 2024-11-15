@@ -20,3 +20,10 @@ body {
 .material-acrylic {
   @apply bg-acrylic border-acrylic-separator;
 }
+
+.with-highlight:hover:before {
+  @apply bg-highlight;
+  content: " ";
+  position: absolute;
+  inset: 0;
+}
