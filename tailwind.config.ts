@@ -1,5 +1,6 @@
 import type { Config } from "tailwindcss";
 import { addIconSelectors } from "@iconify/tailwind";
+import typographyPlugin from "@tailwindcss/typography";
 
 export default {
   content: [
@@ -9,6 +10,15 @@ export default {
   ],
   theme: {
     extend: {
+      typography: ({ theme }: { theme: any }) => ({
+        dark: {
+          css: {
+            "--tw-prose-body": theme("colors.foreground"),
+            "--tw-prose-bold": theme("colors.accent"),
+            textAlign: "justify",
+          },
+        },
+      }),
       colors: {
         background: "var(--color-background)",
         foreground: "var(--color-foreground)",
@@ -25,5 +35,5 @@ export default {
       },
     },
   },
-  plugins: [addIconSelectors(["mdi"])],
+  plugins: [addIconSelectors(["mdi"]), typographyPlugin],
 } satisfies Config;
