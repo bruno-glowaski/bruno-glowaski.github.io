@@ -3,13 +3,10 @@
 import "animate.css";
 import "./page.css";
 import { FadeInLeft, FadeInRight } from "@/components/utils/animate-on-scroll";
-import Footer from "@/components/layout/footer";
-import Navigation from "@/components/layout/navigation";
 
 export default function Home() {
   return (
     <>
-      <Navigation />
       <header className="w-full h-screen flex flex-col justify-center items-center drop-shadow-lg">
         <h1 className="text-5xl leading-normal tracking-[-0.3rem] font-extralight">
           Bruno Glowaski
@@ -76,7 +73,6 @@ export default function Home() {
           </ul>
         </section>
       ))}
-      <Footer />
     </>
   );
 }
