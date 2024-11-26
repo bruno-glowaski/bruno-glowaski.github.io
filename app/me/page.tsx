@@ -3,9 +3,11 @@ import { JSX, ReactElement } from "react";
 export default function Me() {
   return (
     <article>
-      <h1>About me</h1>
-      <section>
-        <h2>TL;DR</h2>
+      <h1 className="h-lscreen flex items-center justify-center text-5xl">
+        About me
+      </h1>
+      <section className="p-4 flex flex-col gap-4">
+        <h2 className="text-5xl">TL;DR</h2>
         {TldrCard("Main fields I work on", [
           "Software Engineering",
           "Web Development",
@@ -53,8 +55,8 @@ export default function Me() {
           "Docker",
         ])}
       </section>
-      <section>
-        <h2>Introduction</h2>
+      <section className="px-4 py-64 prose prose-dark">
+        <h2 className="mb-8 text-4xl text-center not-prose">Introduction</h2>
         <p>
           My full name is <strong>Bruno Henrique Glowaski Morais</strong> and I
           work as a <strong>software engineer</strong>. Versatile and capable of
@@ -88,23 +90,23 @@ export default function Me() {
           mentioned it. I either already know it, or I’m going to learn about it
           in three days.
         </p>
-        <p>
-          On my free time, I’ll be either:
-          <ul>
-            <li>coding;</li>
-            <li>learning;</li>
-            <li>drawing;</li>
-            <li>
-              gaming (I like sandbox games, such as Minecraft and Factorio, and
-              old-school classics, like Super Metroid);
-            </li>
-            <li>modding said games.</li>
-          </ul>
-        </p>
+        <p>On my free time, I’ll be either:</p>
+        <ul>
+          <li>coding;</li>
+          <li>learning;</li>
+          <li>drawing;</li>
+          <li>
+            gaming (I like sandbox games, such as Minecraft and Factorio, and
+            old-school classics, like Super Metroid);
+          </li>
+          <li>modding said games.</li>
+        </ul>
       </section>
-      <section>
-        <h2>Academic Journey</h2>
-        <ol>
+      <section className="flex flex-col">
+        <h2 className="h-lscreen flex items-center justify-center text-4xl">
+          Academic Journey
+        </h2>
+        <ol className="px-4 py-16 flex flex-col gap-16">
           <li>
             {AcademicCourse(
               "Computer Science",
@@ -112,33 +114,31 @@ export default function Me() {
               "UFMS",
               ["2018", "2023"],
               <>
-                <p>
-                  Deepened my knowledge about:
-                  <ul>
-                    <li>Operating Systems;</li>
-                    <li>File Systems;</li>
-                    <li>Multi-threading;</li>
-                    <li>Security & Protection;</li>
-                    <li>Data Structures;</li>
-                    <li>Algorithms;</li>
-                    <li>Software Engineering;</li>
-                    <li>Software Quality;</li>
-                    <li>Development Processes;</li>
-                    <li>Project Management;</li>
-                    <li>Human-Computer Interfaces;</li>
-                    <li>Computer Graphics;</li>
-                    <li>WebGL;</li>
-                    <li>Vulkan;</li>
-                  </ul>
-                </p>
-                <p>
-                  I also learned the following languages:
+                <p>Deepened my knowledge about:</p>
+                <ul>
+                  <li>Operating Systems;</li>
+                  <li>File Systems;</li>
+                  <li>Multi-threading;</li>
+                  <li>Security & Protection;</li>
+                  <li>Data Structures;</li>
+                  <li>Algorithms;</li>
+                  <li>Software Engineering;</li>
+                  <li>Software Quality;</li>
+                  <li>Development Processes;</li>
+                  <li>Project Management;</li>
+                  <li>Human-Computer Interfaces;</li>
+                  <li>Computer Graphics;</li>
+                  <li>WebGL;</li>
+                  <li>Vulkan;</li>
+                </ul>
+                <p>I also learned the following languages:</p>
+                <ul>
                   <li>C;</li>
                   <li>C++;</li>
                   <li>Python;</li>
                   <li>JavaScript;</li>
                   <li>Rust;</li>
-                </p>
+                </ul>
               </>,
             )}
           </li>
@@ -149,14 +149,12 @@ export default function Me() {
               "UFMS",
               ["2023", "present"],
               <>
-                <p>
-                  Learned more about:
-                  <ul>
-                    <li>Operating Systems;</li>
-                    <li>Algorithms;</li>
-                    <li>Software Engineering;</li>
-                  </ul>
-                </p>
+                <p>Learned more about:</p>
+                <ul>
+                  <li>Operating Systems;</li>
+                  <li>Algorithms;</li>
+                  <li>Software Engineering;</li>
+                </ul>
                 <p>
                   Currently, I’m researching latency and throughput
                   optimizations for hypercalls.
@@ -166,9 +164,11 @@ export default function Me() {
           </li>
         </ol>
       </section>
-      <section>
-        <h2>Professional Career</h2>
-        <ol>
+      <section className="flex flex-col">
+        <h2 className="h-lscreen flex items-center justify-center text-4xl">
+          Professional Career
+        </h2>
+        <ol className="px-4 py-16 flex flex-col gap-16">
           <li>
             {Role(
               "Full-stack Developer Intern",
@@ -189,10 +189,10 @@ export default function Me() {
                 <li>Set up automated testing infrastructure;</li>
                 <li>Wrote and kept up-to-date documentation;</li>
                 <li>
-                  <strong>
+                  <em>
                     Considered a full developer, despite no prior work
                     experience.
-                  </strong>
+                  </em>
                 </li>
               </ul>,
             )}
@@ -212,9 +212,9 @@ export default function Me() {
                   Maintained, managed and automated web service deployments;
                 </li>
                 <li>
-                  <strong>
+                  <em>
                     Diligently delivered user stories despite tight schedules.
-                  </strong>
+                  </em>
                 </li>
               </ul>,
             )}
@@ -246,10 +246,10 @@ export default function Me() {
                   to all collaborators;
                 </li>
                 <li>
-                  <strong>
+                  <em>
                     All apps my teams have developed were rated 4/5 or above by
                     clients.
-                  </strong>
+                  </em>
                 </li>
               </ul>,
             )}
@@ -262,8 +262,8 @@ export default function Me() {
 
 function TldrCard(title: string, items: string[]) {
   return (
-    <section>
-      <h3>{title}</h3>
+    <section className="shadow-lg rounded-lg material-acrylic inset-border p-4 flex flex-col gap-4 prose prose-dark">
+      <h3 className="text-xl leading-tight font-bold not-prose">{title}</h3>
       <ul>
         {items.map((content, index) => (
           <li key={index}>{content}</li>
@@ -281,16 +281,16 @@ function AcademicCourse(
   description: ReactElement,
 ) {
   return (
-    <section>
-      <header>
-        <span>{subject}</span>
-        <h3>{degree}</h3>
-        <span>
+    <section className="shadow-lg rounded-lg material-acrylic inset-border p-4 flex flex-col gap-4">
+      <header className="contents">
+        <span className="text-xl leading-tight text-bold">{subject}</span>
+        <h3 className="text-4xl font-medium">{degree}</h3>
+        <span className="text-sm">
           {university}
           <wbr /> ({date[0]} - {date[1]})
         </span>
       </header>
-      <main>{description}</main>
+      <main className="prose prose-dark">{description}</main>
     </section>
   );
 }
@@ -302,15 +302,15 @@ function Role(
   description: ReactElement,
 ) {
   return (
-    <section>
-      <header>
-        <h3>{title}</h3>
-        <span>
+    <section className="shadow-lg rounded-lg material-acrylic inset-border p-4 flex flex-col gap-4">
+      <header className="contents">
+        <h3 className="text-4xl font-medium">{title}</h3>
+        <span className="text-sm">
           {company}
           <wbr /> ({date[0]} - {date[1]})
         </span>
       </header>
-      <main>{description}</main>
+      <main className="prose prose-dark">{description}</main>
     </section>
   );
 }
