@@ -1,7 +1,7 @@
 "use client";
 
 import "animate.css";
-import { FadeInLeft, FadeInRight } from "@/components/utils/animate-on-scroll";
+import { FadeLeft, FadeRight } from "@/components/utils/animate-on-scroll";
 
 export default function Home() {
   return (
@@ -12,7 +12,7 @@ export default function Home() {
         </h1>
         <span className="text-2xl font-bold">Software Engineer</span>
       </header>
-      <FadeInRight
+      <FadeRight
         render={(ref, className) => (
           <main
             ref={ref}
@@ -52,7 +52,7 @@ export default function Home() {
           </main>
         )}
       />
-      <FadeInLeft
+      <FadeLeft
         render={(ref, className) => (
           <section
             ref={ref}

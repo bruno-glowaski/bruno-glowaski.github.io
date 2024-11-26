@@ -101,31 +101,23 @@ export function AnimateOnScroll({
   return render(ref, getClassName(visibility));
 }
 
-export function FadeInLeft({ render }: PredefinedAnimateOnScrollProps) {
-  return (
-    <AnimateOnScroll
-      render={render}
-      animationIn=" animate__animated animate__fadeInLeft"
-      animationOut=" animate__animated animate__fadeOutLeft"
-    />
-  );
-}
-
-export function FadeInRight({ render }: PredefinedAnimateOnScrollProps) {
-  return (
-    <AnimateOnScroll
-      render={render}
-      animationIn=" animate__animated animate__fadeInLeft"
-      animationOut=" animate__animated animate__fadeOutLeft"
-    />
-  );
-}
+export const FadeLeft = WithPredefinedAnimation(
+  "FadeLeft",
+  "fadeInLeft",
+  "fadeOutLeft",
+);
+export const FadeRight = WithPredefinedAnimation(
+  "FadeInRight",
+  "fadeInRight",
+  "fadeOutRight",
+);
 
 function WithPredefinedAnimation(
+  name: string,
   animationIn: string,
   animationOut: string,
-): React.Component<PredefinedAnimateOnScrollProps> {
-  return function ({ render }: PredefinedAnimateOnScrollProps) {
+): React.FC<PredefinedAnimateOnScrollProps> {
+  const fc = function ({ render }: PredefinedAnimateOnScrollProps) {
     return (
       <AnimateOnScroll
         render={render}
@@ -134,4 +126,6 @@ function WithPredefinedAnimation(
       />
     );
   };
+  fc.displayName = name;
+  return fc;
 }
