@@ -1,6 +1,6 @@
 export default function Footer() {
   return (
-    <footer className="material-acrylic border-t p-8 flex flex-col items-center gap-4">
+    <footer className="material-acrylic inset-border-t p-8 flex flex-col items-center gap-4">
       <nav className="flex gap-4">
         {SocialLink(
           "Github",

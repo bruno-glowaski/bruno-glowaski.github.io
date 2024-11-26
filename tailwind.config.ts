@@ -26,6 +26,7 @@ export default {
         highlight: "var(--color-highlight)",
         acrylic: "var(--color-acrylic)",
         "acrylic-separator": "var(--color-acrylic-separator)",
+        "subsurface-scattering": "var(--color-subsurface-scattering)",
       },
       fontFamily: {
         sans: ["var(--font-inter)"],

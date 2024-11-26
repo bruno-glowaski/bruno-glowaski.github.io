@@ -7,6 +7,9 @@
   height: 1.5rem;
   background: var(--color-foreground);
   border-radius: 2rem;
+  box-shadow:
+    0 0 theme(spacing.4) theme(spacing.1) theme(colors.highlight),
+    0 0 theme(spacing.2) theme(spacing.1) theme(colors.highlight);
 }
 
 @media screen(sm) {
