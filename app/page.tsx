@@ -19,7 +19,7 @@ export default function Home() {
             className="w-full min-h-2lscreen sm:min-h-lscreen p-4 sm:p-16 flex justify-end items-center overflow-x-hidden"
           >
             <div
-              className={`max-w-[40em] material-acrylic inset-border rounded-2xl p-8 flex flex-col gap-8 shadow-lg${className}`}
+              className={`max-w-[40em] material-acrylic acrylic-border rounded-2xl p-8 flex flex-col gap-8 shadow-lg${className}`}
             >
               <h2 className="text-4xl drop-shadow">About</h2>
               <p className="prose prose-dark">
@@ -83,7 +83,7 @@ export default function Home() {
 function DonationOption(title: string, value: string, className: string) {
   return (
     <li
-      className={`material-acrylic inset-border rounded-2xl p-8 flex flex-col gap-3 shadow-lg${className}`}
+      className={`material-acrylic acrylic-border rounded-2xl p-8 flex flex-col gap-3 shadow-lg${className}`}
     >
       <h3 className="font-bold uppercase tracking-normal">{title}</h3>
       <span className="break-all">{value}</span>
