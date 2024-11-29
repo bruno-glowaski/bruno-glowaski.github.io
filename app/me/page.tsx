@@ -6,16 +6,16 @@ export default function Me() {
       <h1 className="h-lscreen flex items-center justify-center text-5xl">
         About me
       </h1>
-      <section className="p-4 flex flex-col gap-4">
-        <h2 className="text-5xl">TL;DR</h2>
-        {TldrCard("Main fields I work on", [
+      <section className="sm:min-h-lvh p-4 sm:p-16 flex flex-col sm:flex-row sm:flex-wrap sm:justify-center gap-4 sm:gap-16">
+        <h2 className="text-5xl sm:basis-full sm:text-center">TL;DR</h2>
+        {TldrCard("Main fields I work on:", [
           "Software Engineering",
           "Web Development",
           "Operating Systems",
           "Security",
           "UI & UX Design",
         ])}
-        {TldrCard("Languages I write in", [
+        {TldrCard("Languages I write in:", [
           "Rust",
           "C#",
           "TypeScript",
@@ -29,7 +29,7 @@ export default function Me() {
           "Lua",
           "Java",
         ])}
-        {TldrCard("Web frameworks I develop with", [
+        {TldrCard("Web frameworks I develop with:", [
           "React",
           "Vue 2/3",
           "ASP.NET Core",
@@ -39,14 +39,14 @@ export default function Me() {
           "Next.JS",
           "Vite",
         ])}
-        {TldrCard("Game frameworks & engines I create with", [
+        {TldrCard("Game frameworks & engines I create with:", [
           "Vulkan",
           "WebGL",
           "SDL2",
           "Godot",
           "Unity",
         ])}
-        {TldrCard("Misc. tooling I use", [
+        {TldrCard("Misc. tooling I use:", [
           "Jest",
           "Git",
           "GitHu Actions",
@@ -55,8 +55,10 @@ export default function Me() {
           "Docker",
         ])}
       </section>
-      <section className="px-4 py-64 prose prose-dark">
-        <h2 className="mb-8 text-4xl text-center not-prose">Introduction</h2>
+      <section className="px-4 sm:px-16 py-64 prose prose-dark">
+        <h2 className="mb-8 text-4xl text-center sm:text-left not-prose">
+          Introduction
+        </h2>
         <p>
           My full name is <strong>Bruno Henrique Glowaski Morais</strong> and I
           work as a <strong>software engineer</strong>. Versatile and capable of
@@ -102,11 +104,11 @@ export default function Me() {
           <li>modding said games.</li>
         </ul>
       </section>
-      <section className="flex flex-col">
-        <h2 className="h-lscreen flex items-center justify-center text-4xl">
+      <section className="sm:px-16 sm:py-64 flex flex-col sm:gap-8">
+        <h2 className="h-lscreen sm:h-auto flex items-center justify-center sm:justify-end text-4xl">
           Academic Journey
         </h2>
-        <ol className="px-4 py-16 flex flex-col gap-16">
+        <ol className="px-4 py-16 sm:p-0 flex flex-col gap-16 items-end">
           <li>
             {AcademicCourse(
               "Computer Science",
@@ -164,11 +166,11 @@ export default function Me() {
           </li>
         </ol>
       </section>
-      <section className="flex flex-col">
-        <h2 className="h-lscreen flex items-center justify-center text-4xl">
+      <section className="sm:px-16 sm:py-64 flex flex-col sm:gap-8">
+        <h2 className="h-lscreen sm:h-auto flex items-center justify-center sm:justify-start text-4xl">
           Professional Career
         </h2>
-        <ol className="px-4 py-16 flex flex-col gap-16">
+        <ol className="px-4 py-16 sm:p-0 flex flex-col gap-16 items-start">
           <li>
             {Role(
               "Full-stack Developer Intern",
@@ -262,7 +264,7 @@ export default function Me() {
 
 function TldrCard(title: string, items: string[]) {
   return (
-    <section className="shadow-lg rounded-lg material-acrylic acrylic-border p-4 flex flex-col gap-4 max-w-[unset] prose prose-dark">
+    <section className="shadow-lg rounded-lg material-acrylic acrylic-border gap-4 max-w-[unset] sm:basis-80 p-4 sm:p-8 flex flex-col prose prose-dark">
       <h3 className="text-xl leading-tight font-bold not-prose">{title}</h3>
       <ul>
         {items.map((content, index) => (
@@ -281,7 +283,7 @@ function AcademicCourse(
   description: ReactElement,
 ) {
   return (
-    <section className="shadow-lg rounded-lg material-acrylic acrylic-border p-4 flex flex-col gap-4">
+    <section className="shadow-lg sm:w-[30em] rounded-lg material-acrylic acrylic-border p-4 sm:p-8 flex flex-col gap-4">
       <header className="contents">
         <span className="text-xl leading-tight text-bold">{subject}</span>
         <h3 className="text-4xl font-medium">{degree}</h3>
@@ -302,7 +304,7 @@ function Role(
   description: ReactElement,
 ) {
   return (
-    <section className="shadow-lg rounded-lg material-acrylic acrylic-border p-4 flex flex-col gap-4">
+    <section className="shadow-lg sm:w-[30em] rounded-lg material-acrylic acrylic-border p-4 sm:p-8 flex flex-col gap-4">
       <header className="contents">
         <h3 className="text-4xl font-medium">{title}</h3>
         <span className="text-sm">
