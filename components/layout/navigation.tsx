@@ -1,7 +1,14 @@
+"use client";
+
+import { usePathname } from "next/navigation";
 import "./navigation.css";
 
 export default function Navigation() {
-  const style = { "--item-index": 0 } as React.CSSProperties;
+  const pathname = usePathname();
+
+  const style = {
+    "--item-index": getNavIndex(pathname),
+  } as React.CSSProperties;
   return (
     <aside className="z-10 sm:fixed sm:p-8 sm:top-0 w-full flex justify-center">
       <nav
@@ -19,6 +26,16 @@ export default function Navigation() {
       </nav>
     </aside>
   );
+}
+
+function getNavIndex(pathname: string) {
+  if (pathname === "/") {
+    return 0;
+  }
+  if (pathname.startsWith("/me")) {
+    return 3;
+  }
+  return 0;
 }
 
 function NavLink(content: string, href: string, type?: "external" | "newtab") {
