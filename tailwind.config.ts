@@ -79,6 +79,20 @@ export default {
             },
           ]),
         ),
+        ".animated-fade": {
+          transition: "opacity",
+          opacity: "var(--animated-progress)",
+        },
+        ".animated-fade-left": {
+          transition: "opacity, transform",
+          opacity: "var(--animated-progress)",
+          transform: "translateX(calc((1 - var(--animated-progress)) * -5%))",
+        },
+        ".animated-fade-right": {
+          transition: "opacity, transform",
+          opacity: "var(--animated-progress)",
+          transform: "translateX(calc((1 - var(--animated-progress)) * 5%))",
+        },
       });
     }),
   ],
