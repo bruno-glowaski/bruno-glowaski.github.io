@@ -1,6 +1,7 @@
 "use client";
 
 import { ScrollAnimated } from "@/components/utils/scroll-animated";
+import Link from "next/link";
 
 export default function Home() {
   return (
@@ -36,14 +37,12 @@ export default function Home() {
                 of teams, from basically alone to somewhat large
                 multidisciplinary teams.
               </p>
-              <a
+              <Link
                 className="relative sm:self-end rounded px-4 py-2 bg-accent hover:brightness-110 active:brightness-125 font-bold uppercase tracking-normal flex gap-2 justify-center after:iconify after:mdi--chevron-right after:w-6 after:h-6 shadow transition"
-                href="https://www.linkedin.com/in/bruno-glowaski"
-                target="_blank"
-                rel="noopener noreferrer"
+                href={{ pathname: "/me" }}
               >
                 Learn more
-              </a>
+              </Link>
             </div>
           )}
         />
