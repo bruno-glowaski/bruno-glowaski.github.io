@@ -1,8 +1,14 @@
+import "./page.css";
+
 export default function Home() {
+  const navMenuStyle = { "--item-index": 0 } as React.CSSProperties;
   return (
     <>
       <aside className="z-10 fixed p-8 top-0 w-full flex justify-center">
-        <nav className="material-acrylic rounded-2xl border px-4 py-2 flex gap-4 backdrop-blur-xl shadow-lg">
+        <nav
+          className="material-acrylic rounded-2xl border flex backdrop-blur-xl shadow-lg overflow-clip with-nav-indicator"
+          style={navMenuStyle}
+        >
           {NavMenuLink("Home", "/")}
           {NavMenuLink(
             "Projects",
@@ -102,7 +108,7 @@ function NavMenuLink(
   }
   return (
     <a
-      className="rounded-lg px-4 py-2 hover:bg-highlight font-bold uppercase tracking-normal transition"
+      className="hover:bg-highlight w-28 py-4 flex justify-center font-bold uppercase tracking-normal transition"
       href={href}
       {...props}
     >

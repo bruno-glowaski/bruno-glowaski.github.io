@@ -1,0 +1,11 @@
+.with-nav-indicator:before {
+  position: absolute;
+  bottom: 0.625em;
+  left: calc(1.5rem + var(--item-index) * 7rem);
+  z-index: -1;
+  content: "_";
+  width: 4rem;
+  height: 0.25rem;
+  background: var(--color-foreground);
+  border-radius: 2rem;
+}
