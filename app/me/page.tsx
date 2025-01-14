@@ -1,4 +1,4 @@
-import { JSX, ReactElement } from "react";
+import { ReactElement } from "react";
 
 export default function Me() {
   return (
