@@ -18,7 +18,7 @@ export default function Navigation() {
       >
         {NavLink("Home", "/")}
         {NavLink("Projects", "https://github.com/bruno-glowaski", "external")}
-        {NavLink("Resumé", "/resume", "newtab")}
+        {NavLink("Resumé", "/resume", "download")}
         {NavLink("About", "/me")}
       </nav>
     </aside>
@@ -35,13 +35,17 @@ function getNavIndex(pathname: string) {
   return 0;
 }
 
-function NavLink(content: string, href: string, type?: "external" | "newtab") {
+function NavLink(
+  content: string,
+  href: string,
+  type?: "external" | "download",
+) {
   let props = {};
   if (type === "external") {
     props = { target: "_blank", rel: "noopener noreferrer" };
   }
-  if (type === "newtab") {
-    props = { target: "_blank" };
+  if (type === "download") {
+    props = { target: "_blank", download: "resume.pdf" };
   }
   return (
     <Link
