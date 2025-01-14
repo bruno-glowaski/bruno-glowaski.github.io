@@ -107,7 +107,9 @@ export default function Home() {
             "https://www.linkedin.com/in/bruno-glowaski",
           )}
         </nav>
-        <span>Made with Next.js, Tailwind CSS and TypeScript</span>
+        <span className="text-center">
+          Made with Next.js, Tailwind CSS and TypeScript
+        </span>
       </footer>
     </>
   );
