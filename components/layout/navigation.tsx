@@ -2,7 +2,8 @@
 
 import { usePathname } from "next/navigation";
 import "./navigation.css";
-import Link from "next/link";
+import Link, { LinkProps } from "next/link";
+import { AnchorHTMLAttributes } from "react";
 
 export default function Navigation() {
   const pathname = usePathname();
@@ -40,19 +41,20 @@ function NavLink(
   href: string,
   type?: "external" | "download",
 ) {
-  let props = {};
+  let props: AnchorHTMLAttributes<HTMLAnchorElement> | LinkProps = {
+    className:
+      "hover:bg-highlight w-full sm:w-28 h-14 sm:h-auto px-7 py-4 flex sm:justify-center font-bold uppercase tracking-normal transition",
+  };
   if (type === "external") {
-    props = { target: "_blank", rel: "noopener noreferrer" };
+    props = { ...props, target: "_blank", rel: "noopener noreferrer" };
   }
   if (type === "download") {
-    props = { target: "_blank", download: "resume.pdf" };
+    const dirs = href.split("/");
+    const filename = dirs[dirs.length - 1];
+    props = { ...props, target: "_blank", download: filename, prefetch: false };
   }
   return (
-    <Link
-      className="hover:bg-highlight w-full sm:w-28 h-14 sm:h-auto px-7 py-4 flex sm:justify-center font-bold uppercase tracking-normal transition"
-      href={href}
-      {...props}
-    >
+    <Link {...props} href={href}>
       {content}
     </Link>
   );
