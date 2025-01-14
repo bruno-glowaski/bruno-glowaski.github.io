@@ -16,3 +16,7 @@ body {
   background: var(--color-background);
   font-family: Inter, Ubuntu, Arial, Helvetica, sans-serif;
 }
+
+.material-acrylic {
+  @apply bg-acrylic border-acrylic-separator;
+}
