@@ -42,13 +42,6 @@ body {
       theme(colors.subsurface-scattering) !important;
 }
 
-.with-highlight:hover:before {
-  @apply bg-highlight;
-  content: " ";
-  position: absolute;
-  inset: 0;
-}
-
 .animate__animated.animate__delay-250ms {
   --animate-delay: 250ms;
   -webkit-animation-delay: var(--animate-delay);

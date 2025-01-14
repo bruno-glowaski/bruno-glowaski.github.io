@@ -2,6 +2,11 @@ import type { Config } from "tailwindcss";
 import { addIconSelectors } from "@iconify/tailwind";
 import typographyPlugin from "@tailwindcss/typography";
 
+const heights = {
+  lscreen: "100lvh",
+  "2lscreen": "200lvh",
+};
+
 export default {
   content: [
     "./pages/**/*.{js,ts,jsx,tsx,mdx}",
@@ -34,10 +39,8 @@ export default {
       fontSize: {
         h1: "4em",
       },
-      minHeight: {
-        lscreen: "100lvh",
-        "2lscreen": "200lvh",
-      },
+      minHeight: heights,
+      height: heights,
     },
   },
   plugins: [addIconSelectors(["mdi"]), typographyPlugin],
