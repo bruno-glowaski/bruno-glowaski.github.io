@@ -3,6 +3,7 @@
 import "animate.css";
 import "./page.css";
 import { FadeInLeft, FadeInRight } from "@/components/utils/animate-on-scroll";
+import Footer from "@/components/layout/footer";
 
 export default function Home() {
   const navMenuStyle = { "--item-index": 0 } as React.CSSProperties;
@@ -94,23 +95,7 @@ export default function Home() {
           </ul>
         </section>
       ))}
-      <footer className="material-acrylic border-t p-8 flex flex-col items-center gap-4">
-        <nav className="flex gap-4">
-          {FooterSocial(
-            "Github",
-            "mdi--github",
-            "https://github.com/bruno-glowaski",
-          )}
-          {FooterSocial(
-            "LinkedIn",
-            "mdi--linkedin",
-            "https://www.linkedin.com/in/bruno-glowaski",
-          )}
-        </nav>
-        <span className="text-center">
-          Made with Next.js, Tailwind CSS and TypeScript
-        </span>
-      </footer>
+      <Footer />
     </>
   );
 }
@@ -146,18 +131,5 @@ function DonationOption(title: string, value: string, className: string) {
       <h3 className="font-bold uppercase tracking-normal">{title}</h3>
       <span className="break-all">{value}</span>
     </li>
-  );
-}
-
-function FooterSocial(label: string, icon: string, link: string) {
-  return (
-    <a
-      href={link}
-      className="active:bg-highlight/50 hover:bg-highlight rounded-lg p-2 transition"
-      target="_blank"
-      rel="noopener noreferrer"
-    >
-      <span className={`iconify ${icon} w-8 h-8`}>{label}</span>
-    </a>
   );
 }
