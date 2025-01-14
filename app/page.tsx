@@ -4,31 +4,12 @@ import "animate.css";
 import "./page.css";
 import { FadeInLeft, FadeInRight } from "@/components/utils/animate-on-scroll";
 import Footer from "@/components/layout/footer";
+import Navigation from "@/components/layout/navigation";
 
 export default function Home() {
-  const navMenuStyle = { "--item-index": 0 } as React.CSSProperties;
-
   return (
     <>
-      <aside className="z-10 sm:fixed sm:p-8 sm:top-0 w-full flex justify-center">
-        <nav
-          className="material-acrylic w-full sm:w-auto sm:rounded-2xl border flex flex-col sm:flex-row backdrop-blur-xl sm:shadow-lg overflow-clip with-nav-indicator"
-          style={navMenuStyle}
-        >
-          {NavMenuLink("Home", "/")}
-          {NavMenuLink(
-            "Projects",
-            "https://github.com/bruno-glowaski",
-            "external",
-          )}
-          {NavMenuLink("Resumé", "/resume", "newtab")}
-          {NavMenuLink(
-            "About",
-            "https://www.linkedin.com/in/bruno-glowaski",
-            "external",
-          )}
-        </nav>
-      </aside>
+      <Navigation />
       <header className="w-full h-screen flex flex-col justify-center items-center drop-shadow-lg">
         <h1 className="text-5xl leading-normal tracking-[-0.3rem] font-extralight">
           Bruno Glowaski
@@ -97,29 +78,6 @@ export default function Home() {
       ))}
       <Footer />
     </>
-  );
-}
-
-function NavMenuLink(
-  content: string,
-  href: string,
-  type?: "external" | "newtab",
-) {
-  let props = {};
-  if (type === "external") {
-    props = { target: "_blank", rel: "noopener noreferrer" };
-  }
-  if (type === "newtab") {
-    props = { target: "_blank" };
-  }
-  return (
-    <a
-      className="hover:bg-highlight w-full sm:w-28 h-14 sm:h-auto px-7 py-4 flex sm:justify-center font-bold uppercase tracking-normal transition"
-      href={href}
-      {...props}
-    >
-      {content}
-    </a>
   );
 }
 
