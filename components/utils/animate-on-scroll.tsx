@@ -7,32 +7,37 @@ import {
   useState,
 } from "react";
 
-export interface AnimateOnScrollOptions {
-  animationIn?: string;
-  animationOut?: string;
-  initialVisibility?: boolean;
-}
-
 export type AnimateOnScrollRender = (
   subjectRef: React.RefObject<HTMLElement>,
   className: string,
 ) => ReactNode;
 
+export interface AnimateOnScrollProps {
+  animationIn?: string;
+  animationOut?: string;
+  initialVisibility?: boolean;
+  render: AnimateOnScrollRender;
+}
+
+export interface PredefinedAnimateOnScrollProps {
+  render: AnimateOnScrollRender;
+}
+
 type Visibility = "invisible" | "visible" | "transition_out" | "transition_in";
 
-export function AnimateOnScroll(
-  options: AnimateOnScrollOptions,
-  render: AnimateOnScrollRender,
-): ReactNode {
+export function AnimateOnScroll({
+  render,
+  ...props
+}: AnimateOnScrollProps): ReactNode {
   const [visibility, setVisibility] = useState<Visibility>("visible");
 
   const onIntersectionChange: IntersectionObserverCallback = ([entry]) => {
     setVisibility(
       entry.isIntersecting
-        ? options.animationIn
+        ? props.animationIn
           ? "transition_in"
           : "visible"
-        : options.animationOut
+        : props.animationOut
           ? "transition_out"
           : "invisible",
     );
@@ -60,7 +65,7 @@ export function AnimateOnScroll(
   const intersectionObserver = useRef<IntersectionObserver>();
 
   useEffect(() => {
-    setVisibility(options.initialVisibility ? "visible" : "invisible");
+    setVisibility(props.initialVisibility ? "visible" : "invisible");
   }, []);
 
   useLayoutEffect(() => {
@@ -81,37 +86,52 @@ export function AnimateOnScroll(
     () => (visibility: Visibility) => {
       switch (visibility) {
         case "transition_in":
-          return options.animationIn ?? "";
+          return props.animationIn ?? "";
         case "transition_out":
-          return options.animationOut ?? "";
+          return props.animationOut ?? "";
         case "invisible":
           return " invisible";
         default:
           return "";
       }
     },
-    [options.animationIn, options.animationOut],
+    [props.animationIn, props.animationOut],
   );
 
   return render(ref, getClassName(visibility));
 }
 
-export function FadeInLeft(render: AnimateOnScrollRender) {
-  return AnimateOnScroll(
-    {
-      animationIn: " animate__animated animate__fadeInLeft",
-      animationOut: " animate__animated animate__fadeOutLeft",
-    },
-    render,
+export function FadeInLeft({ render }: PredefinedAnimateOnScrollProps) {
+  return (
+    <AnimateOnScroll
+      render={render}
+      animationIn=" animate__animated animate__fadeInLeft"
+      animationOut=" animate__animated animate__fadeOutLeft"
+    />
   );
 }
 
-export function FadeInRight(render: AnimateOnScrollRender) {
-  return AnimateOnScroll(
-    {
-      animationIn: " animate__animated animate__fadeInRight",
-      animationOut: " animate__animated animate__fadeOutRight",
-    },
-    render,
+export function FadeInRight({ render }: PredefinedAnimateOnScrollProps) {
+  return (
+    <AnimateOnScroll
+      render={render}
+      animationIn=" animate__animated animate__fadeInLeft"
+      animationOut=" animate__animated animate__fadeOutLeft"
+    />
   );
+}
+
+function WithPredefinedAnimation(
+  animationIn: string,
+  animationOut: string,
+): React.Component<PredefinedAnimateOnScrollProps> {
+  return function ({ render }: PredefinedAnimateOnScrollProps) {
+    return (
+      <AnimateOnScroll
+        render={render}
+        animationIn={` animate__animated animate__${animationIn}`}
+        animationOut={`animate__animated animate__${animationOut}`}
+      />
+    );
+  };
 }
