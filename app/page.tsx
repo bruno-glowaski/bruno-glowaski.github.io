@@ -41,7 +41,7 @@ export default function Home() {
                 className="relative sm:self-end rounded px-4 py-2 bg-accent hover:brightness-110 active:brightness-125 font-bold uppercase tracking-normal flex gap-2 justify-center after:iconify after:mdi--chevron-right after:w-6 after:h-6 shadow transition"
                 href={{ pathname: "/me" }}
               >
-                Learn more
+                Learn more about me
               </Link>
             </div>
           )}
