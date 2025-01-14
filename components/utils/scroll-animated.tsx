@@ -8,6 +8,7 @@ import {
 } from "react";
 
 export interface ScrollAnimatedRenderProps {
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   ref: React.RefObject<any>;
   className?: string;
   style?: CSSProperties;
