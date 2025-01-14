@@ -58,6 +58,9 @@ jobs:
           name: github-pages
           path: ${{ env.RUNNER_TEMP }}
 
+      - name: List RUNNER_TEMP
+        run: ls ${RUNNER_TEMP}
+
       - name: Extract pages
         run: |
           mkdir "./out"
