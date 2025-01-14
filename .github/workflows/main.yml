@@ -65,6 +65,8 @@ jobs:
       - uses: treosh/lighthouse-ci-action@v12
         with:
           configPath: './lighthouserc.json'
+          uploadArtifacts: true
+          runs: 3
   deploy:
     environment:
       name: github-pages
