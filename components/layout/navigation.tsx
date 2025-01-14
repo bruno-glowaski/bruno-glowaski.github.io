@@ -19,7 +19,7 @@ export default function Navigation() {
       >
         {NavLink("Home", "/")}
         {NavLink("Projects", "https://github.com/bruno-glowaski", "external")}
-        {NavLink("Resumé", "/resume", "download")}
+        {NavLink("Resumé", "/resume", "download", "resume.pdf")}
         {NavLink("About", "/me")}
       </nav>
     </aside>
@@ -40,6 +40,7 @@ function NavLink(
   content: string,
   href: string,
   type?: "external" | "download",
+  download?: string,
 ) {
   let props: AnchorHTMLAttributes<HTMLAnchorElement> | LinkProps = {
     className:
@@ -49,9 +50,7 @@ function NavLink(
     props = { ...props, target: "_blank", rel: "noopener noreferrer" };
   }
   if (type === "download") {
-    const dirs = href.split("/");
-    const filename = dirs[dirs.length - 1];
-    props = { ...props, target: "_blank", download: filename, prefetch: false };
+    props = { ...props, target: "_blank", download, prefetch: false };
   }
   return (
     <Link {...props} href={href}>
