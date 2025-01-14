@@ -1,7 +1,6 @@
 "use client";
 
-import "animate.css";
-import { FadeLeft, FadeRight } from "@/components/utils/animate-on-scroll";
+import { ScrollAnimated } from "@/components/utils/scroll-animated";
 
 export default function Home() {
   return (
@@ -12,15 +11,12 @@ export default function Home() {
         </h1>
         <span className="text-2xl font-bold">Software Engineer</span>
       </header>
-      <FadeRight
-        render={(ref, className) => (
-          <main
-            ref={ref}
-            className="w-full min-h-2lscreen sm:min-h-lscreen p-4 sm:p-16 flex justify-end items-center overflow-x-hidden"
-          >
-            <div
-              className={`max-w-[40em] material-acrylic acrylic-border rounded-2xl p-8 flex flex-col gap-8 shadow-lg${className}`}
-            >
+      <main className="w-full min-h-2lscreen sm:min-h-lscreen p-4 sm:p-16 flex justify-end items-center overflow-x-hidden">
+        <ScrollAnimated
+          animation="animated-fade-right"
+          className="max-w-[40em] material-acrylic acrylic-border rounded-2xl p-8 flex flex-col gap-8 shadow-lg"
+          render={(props) => (
+            <div {...props}>
               <h2 className="text-4xl drop-shadow">About</h2>
               <p className="prose prose-dark">
                 Hello, my name is <em>Bruno Henrique Glowaski Morais</em> and
@@ -49,44 +45,38 @@ export default function Home() {
                 Learn more
               </a>
             </div>
-          </main>
-        )}
-      />
-      <FadeLeft
-        render={(ref, className) => (
-          <section
-            ref={ref}
-            className="w-full min-h-lscreen p-4 sm:p-16 flex flex-col justify-center items-start gap-8 overflow-x-hidden"
-          >
-            <h2 className={`text-4xl drop-shadow-lg${className}`}>
-              Buy me chocolate milk
-            </h2>
-            <ul className="max-w-[40em] flex flex-col gap-8">
-              {DonationOption(
-                "Bitcoin",
-                "bc1qjgphzkvgmlr909x4xg06w0jq2drzj9ttcgr53laz4s8ykduxvp0qtf0kn3",
-                `${className} animate__delay-250ms`,
-              )}
-              {DonationOption(
-                "PIX",
-                "9edee982-92e4-49bb-9927-643e68643d45",
-                `${className} animate__delay-500ms`,
-              )}
-            </ul>
-          </section>
-        )}
-      />
+          )}
+        />
+      </main>
+      <section className="w-full min-h-lscreen p-4 sm:p-16 flex flex-col justify-center items-start gap-8 overflow-x-hidden">
+        <ScrollAnimated
+          animation="animated-fade-left"
+          className="text-4xl drop-shadow-lg"
+          render={(props) => <h2 {...props}>Buy me chocolate milk</h2>}
+        />
+        <ul className="max-w-[40em] flex flex-col gap-8">
+          {DonationOption(
+            "Bitcoin",
+            "bc1qjgphzkvgmlr909x4xg06w0jq2drzj9ttcgr53laz4s8ykduxvp0qtf0kn3",
+          )}
+          {DonationOption("PIX", "9edee982-92e4-49bb-9927-643e68643d45")}
+        </ul>
+      </section>
     </>
   );
 }
 
-function DonationOption(title: string, value: string, className: string) {
+function DonationOption(title: string, value: string) {
   return (
-    <li
-      className={`material-acrylic acrylic-border rounded-2xl p-8 flex flex-col gap-3 shadow-lg${className}`}
-    >
-      <h3 className="font-bold uppercase tracking-normal">{title}</h3>
-      <span className="break-all">{value}</span>
-    </li>
+    <ScrollAnimated
+      animation="animated-fade-left"
+      className="material-acrylic acrylic-border rounded-2xl p-8 flex flex-col gap-3 shadow-lg"
+      render={(props) => (
+        <li {...props}>
+          <h3 className="font-bold uppercase tracking-normal">{title}</h3>
+          <span className="break-all">{value}</span>
+        </li>
+      )}
+    />
   );
 }

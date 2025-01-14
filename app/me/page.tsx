@@ -1,3 +1,6 @@
+"use client";
+
+import { ScrollAnimated } from "@/components/utils/scroll-animated";
 import { ReactElement } from "react";
 
 export default function Me() {
@@ -56,58 +59,90 @@ export default function Me() {
         ])}
       </section>
       <section className="px-4 sm:px-16 py-64 prose prose-dark">
-        <h2 className="mb-8 text-4xl text-center sm:text-left not-prose">
-          Introduction
-        </h2>
-        <p>
-          My full name is <strong>Bruno Henrique Glowaski Morais</strong> and I
-          work as a <strong>software engineer</strong>. Versatile and capable of
-          working on multiple fields, I have a preference for working on{" "}
-          <em>web services</em>,<em>games</em>, <em>graphic engines</em>,{" "}
-          <em>desktop apps</em>, <em>low-level software</em>. I constantly
-          strive to learn about new topics and technologies, specially those
-          related to computer science.
-        </p>
-        <p>
-          My journey into software development started when I was around 12
-          years old, when, motivated by curiosity about computer systems, I
-          started tinkering with VB.NET Winforms apps and Game Maker 8.
-          Eventually, I moved to C#, learning XNA, MonoGame and WPF.
-        </p>
-        <p>
-          Nowadays, I continue to read and learn about different topics, with
-          more preference for those related to low-level programming (which
-          includes OS and embedded devices), software development processes,
-          security & malware analysis, game design & development, computer
-          graphics, web framework news and analytical math.
-        </p>
-        <p>
-          I mostly develop applications using Rust, C#, TypeScript, C++ and pure
-          C. When developing games and graphics applications, I either use Godot
-          or write an engine from scratch, using frameworks like MonoGame, SDL2
-          or GLFW. I’m well familiar with RESTful APIs, and a bit with GraphQL.
-          On the frontend side, I like writing applications in Vue 3 and Svelte
-          mostly, but I also have a lot of experience with functional React.
-          That being said, never presume I don’t know a technology if I haven’t
-          mentioned it. I either already know it, or I’m going to learn about it
-          in three days.
-        </p>
-        <p>On my free time, I’ll be either:</p>
-        <ul>
-          <li>coding;</li>
-          <li>learning;</li>
-          <li>drawing;</li>
-          <li>
-            gaming (I like sandbox games, such as Minecraft and Factorio, and
-            old-school classics, like Super Metroid);
-          </li>
-          <li>modding said games.</li>
-        </ul>
+        <ScrollAnimated
+          animation="animated-fade"
+          className="mb-8 text-4xl text-center sm:text-left not-prose"
+          render={(props) => <h2 {...props}>Introduction</h2>}
+        />
+        <ScrollAnimated
+          animation="animated-fade-left"
+          render={(props) => (
+            <p {...props}>
+              My full name is <strong>Bruno Henrique Glowaski Morais</strong>{" "}
+              and I work as a <strong>software engineer</strong>. Versatile and
+              capable of working on multiple fields, I have a preference for
+              working on <em>web services</em>,<em>games</em>,{" "}
+              <em>graphic engines</em>, <em>desktop apps</em>,{" "}
+              <em>low-level software</em>. I constantly strive to learn about
+              new topics and technologies, specially those related to computer
+              science.
+            </p>
+          )}
+        />
+        <ScrollAnimated
+          animation="animated-fade-left"
+          render={(props) => (
+            <p {...props}>
+              My journey into software development started when I was around 12
+              years old, when, motivated by curiosity about computer systems, I
+              started tinkering with VB.NET Winforms apps and Game Maker 8.
+              Eventually, I moved to C#, learning XNA, MonoGame and WPF.
+            </p>
+          )}
+        />
+        <ScrollAnimated
+          animation="animated-fade-left"
+          render={(props) => (
+            <p {...props}>
+              Nowadays, I continue to read and learn about different topics,
+              with more preference for those related to low-level programming
+              (which includes OS and embedded devices), software development
+              processes, security & malware analysis, game design & development,
+              computer graphics, web framework news and analytical math.
+            </p>
+          )}
+        />
+        <ScrollAnimated
+          animation="animated-fade-left"
+          render={(props) => (
+            <p {...props}>
+              I mostly develop applications using Rust, C#, TypeScript, C++ and
+              pure C. When developing games and graphics applications, I either
+              use Godot or write an engine from scratch, using frameworks like
+              MonoGame, SDL2 or GLFW. I’m well familiar with RESTful APIs, and a
+              bit with GraphQL. On the frontend side, I like writing
+              applications in Vue 3 and Svelte mostly, but I also have a lot of
+              experience with functional React. That being said, never presume I
+              don’t know a technology if I haven’t mentioned it. I either
+              already know it, or I’m going to learn about it in three days.
+            </p>
+          )}
+        />
+        <ScrollAnimated
+          animation="animated-fade-left"
+          render={(props) => (
+            <div {...props}>
+              <p>On my free time, I’ll be either:</p>
+              <ul>
+                <li>coding;</li>
+                <li>learning;</li>
+                <li>drawing;</li>
+                <li>
+                  gaming (I like sandbox games, such as Minecraft and Factorio,
+                  and old-school classics, like Super Metroid);
+                </li>
+                <li>modding said games.</li>
+              </ul>
+            </div>
+          )}
+        />
       </section>
       <section className="sm:px-16 sm:py-64 flex flex-col sm:gap-8">
-        <h2 className="h-lscreen sm:h-auto flex items-center justify-center sm:justify-end text-4xl">
-          Academic Journey
-        </h2>
+        <ScrollAnimated
+          animation="animated-fade"
+          className="h-lscreen sm:h-auto flex items-center justify-center sm:justify-end text-4xl"
+          render={(props) => <h2 {...props}>Academic Journey</h2>}
+        />
         <ol className="px-4 py-16 sm:p-0 flex flex-col gap-16 items-end">
           <li>
             {AcademicCourse(
@@ -167,9 +202,11 @@ export default function Me() {
         </ol>
       </section>
       <section className="sm:px-16 sm:py-64 flex flex-col sm:gap-8">
-        <h2 className="h-lscreen sm:h-auto flex items-center justify-center sm:justify-start text-4xl">
-          Professional Career
-        </h2>
+        <ScrollAnimated
+          animation="animated-fade"
+          className="h-lscreen sm:h-auto flex items-center justify-center sm:justify-start text-4xl"
+          render={(props) => <h2 {...props}>Professional Career</h2>}
+        />
         <ol className="px-4 py-16 sm:p-0 flex flex-col gap-16 items-start">
           <li>
             {Role(
@@ -264,14 +301,20 @@ export default function Me() {
 
 function TldrCard(title: string, items: string[]) {
   return (
-    <section className="shadow-lg rounded-lg material-acrylic acrylic-border gap-4 max-w-[unset] sm:basis-80 p-4 sm:p-8 flex flex-col prose prose-dark">
-      <h3 className="text-xl leading-tight font-bold not-prose">{title}</h3>
-      <ul>
-        {items.map((content, index) => (
-          <li key={index}>{content}</li>
-        ))}
-      </ul>
-    </section>
+    <ScrollAnimated
+      animation="animated-fade ease-in-out"
+      className="shadow-lg rounded-lg material-acrylic acrylic-border gap-4 max-w-[unset] sm:basis-80 p-4 sm:p-8 flex flex-col prose prose-dark"
+      render={(props) => (
+        <section {...props}>
+          <h3 className="text-xl leading-tight font-bold not-prose">{title}</h3>
+          <ul>
+            {items.map((content, index) => (
+              <li key={index}>{content}</li>
+            ))}
+          </ul>
+        </section>
+      )}
+    />
   );
 }
 
@@ -283,17 +326,23 @@ function AcademicCourse(
   description: ReactElement,
 ) {
   return (
-    <section className="shadow-lg sm:w-[30em] rounded-lg material-acrylic acrylic-border p-4 sm:p-8 flex flex-col gap-4">
-      <header className="contents">
-        <span className="text-xl leading-tight text-bold">{subject}</span>
-        <h3 className="text-4xl font-medium">{degree}</h3>
-        <span className="text-sm">
-          {university}
-          <wbr /> ({date[0]} - {date[1]})
-        </span>
-      </header>
-      <main className="prose prose-dark">{description}</main>
-    </section>
+    <ScrollAnimated
+      animation="animated-fade-right"
+      className="shadow-lg sm:w-[30em] rounded-lg material-acrylic acrylic-border p-4 sm:p-8 flex flex-col gap-4"
+      render={(props) => (
+        <section {...props}>
+          <header className="contents">
+            <span className="text-xl leading-tight text-bold">{subject}</span>
+            <h3 className="text-4xl font-medium">{degree}</h3>
+            <span className="text-sm">
+              {university}
+              <wbr /> ({date[0]} - {date[1]})
+            </span>
+          </header>
+          <main className="prose prose-dark">{description}</main>
+        </section>
+      )}
+    />
   );
 }
 
@@ -304,15 +353,21 @@ function Role(
   description: ReactElement,
 ) {
   return (
-    <section className="shadow-lg sm:w-[30em] rounded-lg material-acrylic acrylic-border p-4 sm:p-8 flex flex-col gap-4">
-      <header className="contents">
-        <h3 className="text-4xl font-medium">{title}</h3>
-        <span className="text-sm">
-          {company}
-          <wbr /> ({date[0]} - {date[1]})
-        </span>
-      </header>
-      <main className="prose prose-dark">{description}</main>
-    </section>
+    <ScrollAnimated
+      animation="animated-fade-left"
+      className="shadow-lg sm:w-[30em] rounded-lg material-acrylic acrylic-border p-4 sm:p-8 flex flex-col gap-4"
+      render={(props) => (
+        <section {...props}>
+          <header className="contents">
+            <h3 className="text-4xl font-medium">{title}</h3>
+            <span className="text-sm">
+              {company}
+              <wbr /> ({date[0]} - {date[1]})
+            </span>
+          </header>
+          <main className="prose prose-dark">{description}</main>
+        </section>
+      )}
+    />
   );
 }
