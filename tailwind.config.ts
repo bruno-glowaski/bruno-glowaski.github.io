@@ -33,6 +33,10 @@ export default {
       fontSize: {
         h1: "4em",
       },
+      minHeight: {
+        lscreen: "100lvh",
+        "2lscreen": "200lvh",
+      },
     },
   },
   plugins: [addIconSelectors(["mdi"]), typographyPlugin],
