@@ -1,9 +1,11 @@
+import "./navigation.css";
+
 export default function Navigation() {
   const style = { "--item-index": 0 } as React.CSSProperties;
   return (
     <aside className="z-10 sm:fixed sm:p-8 sm:top-0 w-full flex justify-center">
       <nav
-        className="material-acrylic w-full sm:w-auto sm:rounded-2xl border flex flex-col sm:flex-row backdrop-blur-xl sm:shadow-lg overflow-clip with-nav-indicator"
+        className="material-acrylic w-full sm:w-auto sm:rounded-2xl inset-border flex flex-col sm:flex-row sm:shadow-lg overflow-clip with-nav-indicator"
         style={style}
       >
         {NavLink("Home", "/")}
