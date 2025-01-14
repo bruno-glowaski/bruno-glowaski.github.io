@@ -67,6 +67,7 @@ export default function Home() {
         <nav className="flex gap-8">
           <a
             href="https://github.com/bruno-glowaski"
+            className="iconify mdi--github w-8 h-8"
             target="_blank"
             rel="noopener noreferrer"
           >
@@ -74,6 +75,7 @@ export default function Home() {
           </a>
           <a
             href="https://www.linkedin.com/in/bruno-glowaski"
+            className="iconify mdi--linkedin w-8 h-8"
             target="_blank"
             rel="noopener noreferrer"
           >
@@ -113,7 +115,7 @@ function DonationOption(title: string, value: string) {
   return (
     <li className="material-acrylic rounded-2xl p-8 flex flex-col gap-3 shadow-lg">
       <h3 className="font-bold uppercase tracking-normal">{title}</h3>
-      <span>{value}</span>
+      <span className="break-all">{value}</span>
     </li>
   );
 }
