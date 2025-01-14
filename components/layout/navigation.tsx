@@ -5,7 +5,7 @@ export default function Navigation() {
   return (
     <aside className="z-10 sm:fixed sm:p-8 sm:top-0 w-full flex justify-center">
       <nav
-        className="material-acrylic w-full sm:w-auto sm:rounded-2xl inset-border flex flex-col sm:flex-row sm:shadow-lg overflow-clip with-nav-indicator"
+        className="material-acrylic w-full sm:w-auto sm:rounded-2xl sm:acrylic-border flex flex-col sm:flex-row sm:shadow-lg overflow-clip with-nav-indicator"
         style={style}
       >
         {NavLink("Home", "/")}

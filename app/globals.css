@@ -18,30 +18,6 @@ body {
   font-family: Inter, Ubuntu, Arial, Helvetica, sans-serif;
 }
 
-.inset-border {
-  --inset-border-shadow: inset 0 0 0 1px var(--inset-border-color);
-}
-
-.inset-border-t {
-  --inset-border-shadow: inset 0 1px 0 0 var(--inset-border-color);
-}
-
-.material-acrylic {
-  @apply bg-acrylic backdrop-blur-md;
-  --inset-border-color: theme(colors.acrylic-separator);
-
-  box-shadow: 
-    /* Tailwind */
-    var(--tw-ring-offset-shadow, 0 0 #0000),
-    var(--tw-ring-shadow, 0 0 #0000),
-    var(--tw-shadow),
-    /* Border */ var(--inset-border-shadow),
-    /* Subsurface scattering */ inset 0 0 theme(spacing.2) theme(spacing.1)
-      theme(colors.subsurface-scattering),
-    inset 0 0 theme(spacing.8) theme(spacing.1)
-      theme(colors.subsurface-scattering) !important;
-}
-
 .animate__animated.animate__delay-250ms {
   --animate-delay: 250ms;
   -webkit-animation-delay: var(--animate-delay);

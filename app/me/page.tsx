@@ -262,7 +262,7 @@ export default function Me() {
 
 function TldrCard(title: string, items: string[]) {
   return (
-    <section className="shadow-lg rounded-lg material-acrylic inset-border p-4 flex flex-col gap-4 prose prose-dark">
+    <section className="shadow-lg rounded-lg material-acrylic acrylic-border p-4 flex flex-col gap-4 max-w-[unset] prose prose-dark">
       <h3 className="text-xl leading-tight font-bold not-prose">{title}</h3>
       <ul>
         {items.map((content, index) => (
@@ -281,7 +281,7 @@ function AcademicCourse(
   description: ReactElement,
 ) {
   return (
-    <section className="shadow-lg rounded-lg material-acrylic inset-border p-4 flex flex-col gap-4">
+    <section className="shadow-lg rounded-lg material-acrylic acrylic-border p-4 flex flex-col gap-4">
       <header className="contents">
         <span className="text-xl leading-tight text-bold">{subject}</span>
         <h3 className="text-4xl font-medium">{degree}</h3>
@@ -302,7 +302,7 @@ function Role(
   description: ReactElement,
 ) {
   return (
-    <section className="shadow-lg rounded-lg material-acrylic inset-border p-4 flex flex-col gap-4">
+    <section className="shadow-lg rounded-lg material-acrylic acrylic-border p-4 flex flex-col gap-4">
       <header className="contents">
         <h3 className="text-4xl font-medium">{title}</h3>
         <span className="text-sm">
