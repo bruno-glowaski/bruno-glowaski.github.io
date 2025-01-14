@@ -56,7 +56,7 @@ jobs:
       - uses: actions/download-artifact@v4
         with:
           name: github-pages
-          path: ${{ env.RUNNER_TEMP }}
+          path: ${{ runner.temp }}
 
       - name: List RUNNER_TEMP
         run: ls ${RUNNER_TEMP}
