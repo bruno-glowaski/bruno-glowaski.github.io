@@ -37,7 +37,7 @@ export default function Home() {
       {FadeInRight((ref, className) => (
         <main
           ref={ref}
-          className="w-full h-[200vh] sm:h-screen p-16 flex justify-end items-center overflow-x-hidden"
+          className="w-full h-[200vh] sm:h-screen p-4 sm:p-16 flex justify-end items-center overflow-x-hidden"
         >
           <div
             className={`max-w-[40em] material-acrylic border rounded-2xl p-8 flex flex-col gap-8 shadow-lg${className}`}
@@ -75,7 +75,7 @@ export default function Home() {
       {FadeInLeft((ref, className) => (
         <section
           ref={ref}
-          className="w-full h-screen p-16 flex flex-col justify-center items-start gap-8 overflow-x-hidden"
+          className="w-full h-screen p-4 sm:p-16 flex flex-col justify-center items-start gap-8 overflow-x-hidden"
         >
           <h2 className={`text-4xl drop-shadow-lg${className}`}>
             Buy me chocolate milk

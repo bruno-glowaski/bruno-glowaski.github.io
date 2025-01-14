@@ -1,7 +1,6 @@
 import {
-  HTMLProps,
-  PropsWithRef,
   ReactNode,
+  useEffect,
   useLayoutEffect,
   useMemo,
   useRef,
@@ -25,9 +24,7 @@ export function AnimateOnScroll(
   options: AnimateOnScrollOptions,
   render: AnimateOnScrollRender,
 ): ReactNode {
-  const [visibility, setVisibility] = useState<Visibility>(
-    options.initialVisibility ? "visible" : "invisible",
-  );
+  const [visibility, setVisibility] = useState<Visibility>("visible");
 
   const onIntersectionChange: IntersectionObserverCallback = ([entry]) => {
     setVisibility(
@@ -60,17 +57,23 @@ export function AnimateOnScroll(
   );
 
   const ref = useRef<HTMLElement>(null);
-  const intersectionObserver = useRef<IntersectionObserver>(
-    new IntersectionObserver(onIntersectionChange, {
-      threshold: 0.1,
-    }),
-  );
+  const intersectionObserver = useRef<IntersectionObserver>();
+
+  useEffect(() => {
+    setVisibility(options.initialVisibility ? "visible" : "invisible");
+  }, []);
+
   useLayoutEffect(() => {
-    intersectionObserver.current.observe(ref.current!);
+    intersectionObserver.current =
+      intersectionObserver.current ??
+      new IntersectionObserver(onIntersectionChange, {
+        threshold: 0.1,
+      });
+    intersectionObserver.current!.observe(ref.current!);
     ref.current?.addEventListener("animationend", onAnimationEnd);
     return () => {
       ref.current?.removeEventListener("animationend", onAnimationEnd);
-      intersectionObserver.current.unobserve(ref.current!);
+      intersectionObserver.current!.unobserve(ref.current!);
     };
   }, []);
 
