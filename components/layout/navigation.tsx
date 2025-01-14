@@ -2,6 +2,7 @@
 
 import { usePathname } from "next/navigation";
 import "./navigation.css";
+import Link from "next/link";
 
 export default function Navigation() {
   const pathname = usePathname();
@@ -18,11 +19,7 @@ export default function Navigation() {
         {NavLink("Home", "/")}
         {NavLink("Projects", "https://github.com/bruno-glowaski", "external")}
         {NavLink("Resumé", "/resume", "newtab")}
-        {NavLink(
-          "About",
-          "https://www.linkedin.com/in/bruno-glowaski",
-          "external",
-        )}
+        {NavLink("About", "/me")}
       </nav>
     </aside>
   );
@@ -47,12 +44,12 @@ function NavLink(content: string, href: string, type?: "external" | "newtab") {
     props = { target: "_blank" };
   }
   return (
-    <a
+    <Link
       className="hover:bg-highlight w-full sm:w-28 h-14 sm:h-auto px-7 py-4 flex sm:justify-center font-bold uppercase tracking-normal transition"
       href={href}
       {...props}
     >
       {content}
-    </a>
+    </Link>
   );
 }
