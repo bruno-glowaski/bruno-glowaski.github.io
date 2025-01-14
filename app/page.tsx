@@ -43,7 +43,7 @@ export default function Home() {
             className={`max-w-[40em] material-acrylic border rounded-2xl p-8 flex flex-col gap-8 shadow-lg${className}`}
           >
             <h2 className="text-4xl drop-shadow">About</h2>
-            <p>
+            <p className="prose prose-dark">
               Hello, my name is <em>Bruno Henrique Glowaski Morais</em> and I’m
               a passionate <strong>software engineer</strong>. Being a curious
               person, I dabble in a lot of fields, including, but not limited
